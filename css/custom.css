@@ -1,7 +1,7 @@
 /* ------------- 3Scape Background -----------------*/ 
 
 html { 
-  background: url(../3ScapeBackground.png) no-repeat center center fixed; 
+  background: url(/img/3ScapeBackground.png) no-repeat center center fixed; 
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight:300;
   color:#666;
