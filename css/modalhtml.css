@@ -77,9 +77,6 @@ label img{
    
 }
 
-.buttons {
-    width:90%;
-}
 
 .quit, .continue{
     text-transform: uppercase;
@@ -94,6 +91,11 @@ iframe{
     margin:0px auto;
     outline: 5px solid #fff;
     outline-offset: -4px;
+}
+
+.checkboxes{
+    width:90%;
+    margin:10px auto;
 }
 
 
