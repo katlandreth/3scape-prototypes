@@ -44,13 +44,17 @@ $(document).ready(function(){
             var img = new Image();
             
             //Draw Click Target
-            console.log("Draw Click Target");
             context.clearRect ( 0 , 0 , canvas.width, canvas.height );
-            img.src = "../img/target.png";
+            img.src = "img/target.png";
+            console.log(img);
             img.onload = function() {
+                console.log("onload being fired");
                 context.drawImage(img,offX,offY,50,50);
+                console.log("Click Target Drawn");
             };
-            console.log("Click Target Drawn");
+            
+            
+            
             //Move Modal Below Target and Change Text
             console.log("Move Modal Below Target");
             $(".modal").removeClass("first").addClass("second").animate({top: modalTop , left: modalLeft });

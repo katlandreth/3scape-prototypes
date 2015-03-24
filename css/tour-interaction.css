@@ -107,6 +107,9 @@ button.quit:hover{
 }
 
 
+
+
+
 /* ---------------------- Specific Modals ------------------*/
 .first.modal{
     top:40%;
@@ -144,6 +147,9 @@ button.quit:hover{
     line-height: 1;
     text-shadow: -4px 0px 0px #3498db;
 }
+
+
+
 
 
 /*------ Drop Shapes----------*/
@@ -209,6 +215,9 @@ button.quit:hover{
 .modal ul li{
     margin: 7px 0;
 }
+
+
+
 
 
 /*-------Modal Table ---------*/
