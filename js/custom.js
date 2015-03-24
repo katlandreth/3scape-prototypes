@@ -47,7 +47,7 @@ $(document).ready(function(){
           
             //Add Context Menu to Target Area
            
-            $("nav.circular-menu").remove();
+           
             $("body").append(contextMenu);
                 
             //Arrange Circular Context Menu
@@ -56,11 +56,9 @@ $(document).ready(function(){
                 items[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
                 items[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
             }
-            
             $(".circular-menu").css({"top": contextY + "px", "left": contextX +"px"});
             
             //Make Inputs In Context Menu Work Good
-            
 
             $(".spnlt").click(function(){
                 if (!$(".fa-refresh").hasClass("fa-flip-horizontal")){
