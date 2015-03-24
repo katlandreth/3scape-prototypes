@@ -1,29 +1,18 @@
 $(document).ready(function(){
     var canvas = document.getElementById('canvas1');
     var context = canvas.getContext("2d");
-    var contextMenu = '<nav class="circular-menu">'+
-                    '<div class="circle">'+
-                    '<ul class="circle-menu">'+
-                    '<li><span class="fa-refresh fa"></span><button class="spnlt fa-angle-left fa"></button><button class="spnrt fa-angle-right fa"></button></li>'+
-                    '<li class="widelist"><span class="fa-cube fa" id="smallcube"></span><span class="fa fa-cube" id="bigcube"></span><input id="slider" class="scale" type=range id=scale min=1 value=100                           max=200 step=1 "></li>'+
-                    '<li class="fa-tint fa"><input id="colorpicker" type="color"></li>'+
-                    '<li><span class="cow"></span><input type="radio" name="motion" value="on"><input type="radio" name="motion"                         value="off" checked="checked"></li>'+
-                    '<li><span class="fa-reply fa pointup"></span><button class="spnup fa-angle-up fa"></button><button                                 class="spndwn fa-angle-down fa"></li>'+
-                    '</div>'+
-                    '<li class="menu-button fa-arrows-alt fa"></li>'+
-                    '</ul>'+
-                    '</nav>';
+    var modal = $(".modal");
     canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
+    
+    
     //Setup the first modal
-    console.log("Set Up First Modal");
-    var modal = $(".modal");
+    
     $(modal).addClass("first");
     $(".modal-head").text("You've entered a land where much is possible");
-    $(".modal-content").text("I'm Snappy - a voiceless spirit and your guide to this world. Come with me to learn the ways of 3Scape. Click on the Texture Face and behold what follows.");
+    $(".modal-content").text("I'm Snappy - a voiceless spirit and your guide to this world. Come with me to learn the ways of 3Scape.           Click on the Texture Face and behold what follows.");
     $("button.next").css("display", "none");
     $("div.modalTable").hide();
-    console.log("First Modal Complete");
     //Place Click Target, and place next modal
     $('html').click(function(e) {
         var target = $( e.target );
@@ -102,9 +91,7 @@ $(document).ready(function(){
             $(".spndwn").click(function(){
                 console.log("click down");
                 $(".fa-reply").removeClass("pointup").addClass("pointdown");
-            });
-            
-            
+            }); 
             
             $(".tool").unbind().click(function(){
                 //Drop Shape From Toolbox
@@ -124,8 +111,6 @@ $(document).ready(function(){
                 console.log("Canvas Cleared");
                 img.onload = function() {
                     var theInput = document.getElementById("colorpicker");
-                    context.drawImage(img,shapeX,shapeY,100,100);
-                    console.log("Shape Drawn");
                     var x = shapeX + 50;
                     var y = shapeY + 50;
                     var pixel = context.getImageData(x, y, 1, 1);
@@ -133,13 +118,14 @@ $(document).ready(function(){
                     var defaultR = data[0];
                     var defaultG = data[1];
                     var defaultB = data[2];
-                    console.log(defaultR + ' ' + defaultG + ' ' + defaultB);
+                    context.drawImage(img,shapeX,shapeY,100,100);
+                    
                     var defaultHSL = rgbToHsl(defaultR, defaultG, defaultB);
-                    console.log(defaultHSL);
+                   
                     var defaultL = .4;
                     var newDefaultRGB = hslToRgb(defaultHSL.h, defaultHSL.s, defaultL);
                     var defaultHex = rgbToHex(newDefaultRGB.r, newDefaultRGB.g, newDefaultRGB.b);
-                    console.log(defaultHex);
+                    
                     $('input[type="color"]').val(defaultHex);
                     
                     //Make the Color Picker Work Good
@@ -147,9 +133,7 @@ $(document).ready(function(){
                         var theColor = theInput.value;
                         var color = hexToRgb(theColor);
                         var hslColor = rgbToHsl(color.r, color.g, color.b);
-                        console.log(hslColor);
                         var chosenHue = (hslColor.h);
-                        console.log(chosenHue);
                         var imgData = context.getImageData(shapeX, shapeY, canvas.width, canvas.height);
                         var data = imgData.data;
                         for (var i = 0; i < data.length; i += 4) {
@@ -161,9 +145,10 @@ $(document).ready(function(){
                             if (alpha < 100) {
                                 continue;
                             }
+                            
                             var hsl = rgbToHsl(red, green, blue);
                             var hue = hsl.h * 360;
-                                var newRgb = hslToRgb(chosenHue, hsl.s, hsl.l);
+                            var newRgb = hslToRgb(chosenHue, hsl.s, hsl.l);
                                 data[i + 0] = newRgb.r;
                                 data[i + 1] = newRgb.g;
                                 data[i + 2] = newRgb.b;
@@ -186,15 +171,15 @@ $(document).ready(function(){
         
                         console.log(modalHeight);
                         window.setTimeout(function() {
-                            console.log("set timeout function fired");
                             (function animateHeight(){
+                                var newHeight = $(".modal").height() + $("div.modalTable").height() - 50;
                                 $(".modal").addClass("fifth");
                                 $(".modal-head").html("<span class='fa fa-key fa-3x fa-flip-horizontal'></span>You've earned a key to decode the symbols");
                                 $(".modal-content").hide();  
                                 $("button.next").css("display", "inline-block");
                                 
-                                var newHeight = $(".modal").height() + $("div.modalTable").height() - 50;
-                                console.log(newHeight);
+                                
+                                
                                 $(".modal").animate({top: secondModalTop - 100 , left: secondModalLeft - 100});
                                 $(".modal").animate({height: newHeight, width:400});
                                 window.setTimeout(function(){
