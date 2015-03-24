@@ -30,7 +30,17 @@ $(document).ready(function(){
                 canvasX = offset.left +210,
                 canvasY = offset.top -460,
                 img = new Image();
+            
+            //Add Context Menu to Target Area
+            $("body").append(contextMenu);
                 
+            //Arrange Circular Context Menu
+            var items = $('.circle li'); 
+            for (var i = 0, l = items.length; i < l; i++) {
+                items[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+                items[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+            }
+            $(".circular-menu").css({"top": contextY + "px", "left": contextX +"px"});
             
             //Draw Click Target
             context.clearRect ( 0 , 0 , canvas.width, canvas.height );
@@ -45,21 +55,10 @@ $(document).ready(function(){
             $(".modal-head").text("With targets like this, command the spawn point of every shape in the land");
             $(".modal-content").html("Click a shape in the toolbar and watch the magic unfold.");
           
-            //Add Context Menu to Target Area
-           
-           
-            $("body").append(contextMenu);
-                
-            //Arrange Circular Context Menu
-            var items = $('.circle li'); 
-            for (var i = 0, l = items.length; i < l; i++) {
-                items[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
-                items[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
-            }
-            $(".circular-menu").css({"top": contextY + "px", "left": contextX +"px"});
+            
+            
             
             //Make Inputs In Context Menu Work Good
-
             $(".spnlt").click(function(){
                 if (!$(".fa-refresh").hasClass("fa-flip-horizontal")){
                     $(".fa-refresh").addClass("fa-flip-horizontal");
@@ -119,32 +118,31 @@ $(document).ready(function(){
                     
                     //Make the Color Picker Work Good
                     theInput.addEventListener("input", function() {
-                        var theColor = theInput.value,
-                            color = hexToRgb(theColor),
-                            hslColor = rgbToHsl(color.r, color.g, color.b),
-                            chosenHue = (hslColor.h),
-                            imgData = context.getImageData(shapeX, shapeY, canvas.width, canvas.height),
-                            data = imgData.data,
-                            hsl = rgbToHsl(red, green, blue),
-                            hue = hsl.h * 36,
-                            newRgb = hslToRgb(chosenHue, hsl.s, hsl.l);
-                        
+                        var theColor = theInput.value;
+                        var color = hexToRgb(theColor);
+                        var hslColor = rgbToHsl(color.r, color.g, color.b);
+                        var chosenHue = (hslColor.h);
+                        var imgData = context.getImageData(shapeX, shapeY, canvas.width, canvas.height);
+                        var data = imgData.data;
                         for (var i = 0; i < data.length; i += 4) {
-                            red = data[i + 0];
-                            green = data[i + 1];
-                            blue = data[i + 2];
-                            alpha = data[i + 3];
-
-                            if (alpha < 100) {
-                                continue;
-                            }
-                                data[i + 0] = newRgb.r;
-                                data[i + 1] = newRgb.g;
-                                data[i + 2] = newRgb.b;
-                                data[i + 3] = 255;
+                        red = data[i + 0];
+                        green = data[i + 1];
+                        blue = data[i + 2];
+                        alpha = data[i + 3];
+                        
+                        if (alpha < 100) {
+                            continue;
+                        }
+                            
+                        var hsl = rgbToHsl(red, green, blue);
+                        var hue = hsl.h * 360;
+                        var newRgb = hslToRgb(chosenHue, hsl.s, hsl.l);
+                        data[i + 0] = newRgb.r;
+                        data[i + 1] = newRgb.g;
+                        data[i + 2] = newRgb.b;
+                        data[i + 3] = 255;
                         }
                         context.putImageData(imgData, shapeX, shapeY);
-                        
                     }, false);
                     
                     //Make the Scale Slider Work Good
