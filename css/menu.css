@@ -15,8 +15,7 @@
 
 .flyout-wrapper header{
     padding:0px;
-    margin-top:10px;
-    
+    margin-top:10px;  
 }
 
 .flyout-wrapper ul{
@@ -321,10 +320,6 @@ h3{
     position:relative;
     top:0;
 }
-
-
-
-
 
 .note{
     width:500px;
