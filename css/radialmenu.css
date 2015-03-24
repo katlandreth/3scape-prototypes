@@ -1,0 +1,147 @@
+.circular-menu {
+  width: 350px;
+  height: 350px;
+  position: absolute;
+  display:inline-block;
+}
+
+.circle {
+  box-sizing:border-box;
+  width: 350px;
+  height: 350px;
+  opacity: 0;
+  border-radius:50%;
+  -webkit-transform: scale(0);
+     -moz-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: all 0.4s ease-out;
+     -moz-transition: all 0.4s ease-out;
+          transition: all 0.4s ease-out;
+}
+
+.open.circle {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
+}
+
+.circle li {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  margin-left: -20px;
+  margin-top: -20px;
+  position: absolute;
+  text-align: center;
+
+}
+
+.circle li:hover {
+}
+
+.menu-button {
+  position: absolute;
+  text-decoration: none;
+  text-align: center;
+  color: rgba(0,0,0,0);
+  display: block;
+  height: 100px;
+  width: 100px;
+  line-height: 40px;
+  padding: 10px;
+    top:150px;
+    left:120px;
+}
+
+.circle li, .circle span{
+    font-size:40px;
+    width:50px;
+}
+
+li.widelist{
+    width:100px;
+}
+
+input.scale{
+    position:relative;
+    left:-35px;
+    width:100px;
+}
+
+span.fa-signal{
+    display:block;
+    font-size:25px; 
+    -webkit-transform:scale(3.5,1);
+            transform:scale(3.5,1);
+    line-height:1;
+    width:10px;
+}
+
+.fa.fa-cube{
+    position: relative;
+    display:inline;
+    left:-35px;
+    vertical-align: bottom;
+}
+
+.fa.fa-cube#bigcube{
+   
+    width:25px;
+    font-size:25px;
+    vertical-align: bottom;
+    
+}
+
+.fa.fa-cube#smallcube{
+   
+    width:10px;
+    font-size:10px;
+    vertical-align:bottom;
+    margin-right:65px;
+}
+
+button.spnlt, button.spnrt, button.spnup, button.spndwn{
+float: left;
+  width: 20px;
+  line-height: 1;
+  padding: 5px;
+  margin: 2px;
+  position: relative;
+    font-size: 15px;
+}
+
+span.fa-reply.pointup{
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+span.fa-reply.pointdown{
+    -webkit-transform: rotate(180deg);
+    transform: rotate(-90deg);
+}
+
+.cow:before{
+    content:"";
+    background:url("/img/cow.svg") no-repeat;
+    background-size: 40px;
+    width:40px;
+    height:40px;
+    display:block;
+}
+
+input[type=radio]{
+    margin:5px;
+}
+
+ul.circle-menu{
+    margin-top:none;
+    margin-bottom:none;
+    margin-left:none;
+    margin-right:none;
+}
+
+
