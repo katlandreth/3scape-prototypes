@@ -2,33 +2,17 @@
 
 html { 
   background: url(../3ScapeBackground.png) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight:300;
-    color:#666;
+  color:#666;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
 }
 
-
-
-/*---------------- Click Point -------------- */
-.crosshair{
-    height:20px;
-    width:20px;
-    border-radius: 50%;
-    background: orange;
-    position:absolute;
-    text-align:center;
-    color:#fff;
-    line-height:20px;
-    border: 3px solid #FFD700;
-    box-shadow:0 0 0 5px rgba(255, 215, 0, 0.4), 0 0 0 8px  rgba(255, 215, 0, 0.4), 0 0 5px 12px rgba(255,255,255,0.1);
-}
-
-.crosshair:hover{
-    cursor:default;
+body{
+    position: relative;
 }
 
 
@@ -36,48 +20,16 @@ html {
 /* --------------- Modal -------------------- */
 
 .modal{
-    width:300px;
+    position:absolute;
+    top:40%;
+    left:30%;
+    width:400px;
     padding:15px;
     margin:15px;
     background:#fff;
     border: 2px solid #3498db;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
-    position:absolute;
 }
-
-.modal:before{
-  content: "▲";
-  position: absolute;
-  font-size: 2.0em;
-  top: -.65em;
-  left: 43%;
-  color: #fff;
-  line-height: 1;
-  text-shadow: 0px -5px 0px #3498db;
-}
-
-.pointRight.modal:before{
-  content: "▶";
-  position: absolute;
-  font-size: 2.0em;
-  top: 2em;
-  left: 98%;
-  color: #fff;
-  line-height: 1;
-  text-shadow: 4px 0px 0px #3498db;
-}
-
-.pointLeft.modal:before{
-  content: "◀";
-  position: absolute;
-  font-size: 2.0em;
-  top: 2em;
-  left: -25px;
-  color: #fff;
-  line-height: 1;
-  text-shadow: -4px 0px 0px #3498db;
-}
-
 
 .modal-head{
     margin:10px auto;
@@ -86,6 +38,12 @@ html {
     text-align:center;
     text-transform: capitalize;
 }
+
+
+
+
+
+/*--------------------- Modal Buttons ------------------*/
 
 button{
     background:#fff;
@@ -129,207 +87,105 @@ button.quit:hover{
     margin:15px auto 5px auto ;
 }
 
-
-
-/* First*/
-
-.first.modal{
-    top:40%;
-    left:30%;
-    width:400px;
+.quit, .continue{
+    text-transform: uppercase;
 }
 
-.first.modal:before{
+
+
+
+/*------------ Variables Inside Modal Text ------------------------*/
+
+
+.customverb{
+    color:#16a085;
+    font-weight: 400;
+}
+
+.customshape{
+    color:#d35400;
+    font-weight: 400;
+}
+
+.customverb:before, .customshape:before{
+    content:"[";
+}
+
+.customverb:after, .customshape:after{
+    content:"]";   
+}
+
+
+
+/*------------- Navigation Arrows for Tour Card Slideshow ----------------*/
+
+.nav{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+}
+
+.nav button{
+    width:45px;
+    height:45px;
+    font-size: 40px;
+}
+
+button span.fa{
+    position:relative;
+    top:-10px;
+}
+
+
+
+
+/*--------------- Checkboxs in First Modal --------------------------------*/
+
+div.checkbox{
+    width:50%;
+    margin:20px 0;
+    display:inline;
+    float:left;
+}
+
+span.block{  /*  moves the labels under the checkbox images */ 
+    display:block;
+    margin-left:20px;
+}
+
+input[type=checkbox]{
+    vertical-align: middle;
+    position: relative;
+    bottom: 1.5px;
+}
+
+label img{
+    height:50px;
+    width:auto;
+}
+
+.shadow{
+    box-shadow: 0 0 3px rgba(0,0,0,0.4);
+}
+
+.checkboxes{
+    width:90%;
+    margin:10px auto;
+}
+
+
+
+
+/*-------------------- High Five ----------------*/
+
+.modal.highfive{
     display:none;
 }
 
-.third.modal{
-    
-}
-
-/* Quit Modal */
-
-.quit-modal{
-    top:20px;
-    left:100px;
-}
-
-
-/*------ Drop Shapes----------*/
-
-.crosshair.cubeShape, 
-.crosshair.sphereShape, 
-.crosshair.pyramidShape, 
-.crosshair.tubeShape, 
-.crosshair.elbowShape, 
-.crosshair.gearShape,
-.crosshair.wallShape,
-.crosshair.plankShape,
-.crosshair.beamShape,
-.crosshair.wedgeShape,
-.crosshair.ringShape{
-    height:100px;
-    width:100px;
+iframe{
     border:none;
-    box-shadow:none;
-    border-radius:0;
+    margin:0px auto;
+    outline: 5px solid #fff;
+    outline-offset: -4px;
 }
-
-.crosshair.cubeShape{
-    background:url("../img/CubeButton.png") 0 0 / 100px 100px no-repeat;
-}
-   
-.crosshair.sphereShape{
-    background:url("../img/SphereButton.png") 0 0 / 100px 100px no-repeat;
-}
-
-.crosshair.pyramidShape{
-    background:url("../img/PyramidButton.png") 0 0 / 100px 100px no-repeat;
-}
-
-.crosshair.tubeShape{
-    background:url("../img/TubeButton.png") 0 0 / 100px 100px no-repeat;
-}
-
-.crosshair.elbowShape{
-    background:url("../img/ElbowButton.png") 0 0 / 100px 100px no-repeat;
-}
-
-.crosshair.gearShape{
-    background:url("../img/GearButton.png") 0 0 / 100px 100px no-repeat;
-}
-
-.crosshair.wallShape{
-    background:url("../img/WallButton.png") 0 0 / 100px 100px no-repeat;
-}
-
-.crosshair.plankShape{
-    background:url("../img/PlankButton.png") 0 0 / 100px 100px no-repeat;
-}
-
-.crosshair.beamShape{
-    background:url("../img/BeamButton.png") 0 0 / 100px 100px no-repeat;
-}
-
-.crosshair.wedgeShape{
-    background:url("../img/WedgeButton.png") 0 0 / 100px 100px no-repeat;
-}
-
-.crosshair.ringShape{
-    background:url("../img/RingButton.png") 0 0 / 100px 100px no-repeat;
-}
-
-.modal ul {
-    list-style: none;
-    margin:5px
-    -webkit-margin-before: .25em;
-  -webkit-margin-after: .25em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-  -webkit-padding-start: 5px;
-}
-
-.modal ul li{
-    margin: 7px 0;
-}
-
-
-
-/*
-.modal-head .fa {
-    transform:translate(-30px, -20px);
-}
-*/
-
-
-/*-------Modal Table ---------*/
-
-
-table.tg{ 
-    width:85%;
-    margin:5px auto;
-    background:#fff;
-    -webkit-transition: transform 1s ease-out;  
-       -moz-transition: transform 1s ease-out;  
-            transition: transform 1s ease-out;  
-    
-}
-
-table.tg.shrink{
-    display:inline-block;
-    position:absolute;
-     -webkit-transform: scale(0.05) ;
-        -moz-transform: scale(0.05) ;
-             transform: scale(0.05) ; 
-}
-
-div.modalTable{
-    -webkit-transition: transform 1.2s ease-out;  
-       -moz-transition: transform 1.2s ease-out;  
-            transition: transform 1.2s ease-out;  
-}
-
-div.modalTable.move{
-    -webkit-transform:translate(-2000px,-1000px);
-       -moz-transform:translate(-2000px,-1000px);
-            transform:translate(-2000px,-1000px);
-}
-
-table.tg th, table.tg td{
-    padding:15px;
-    border-bottom: 1px solid #ccc;
-    
-}
-
-table.tg .fa{
-font-size: 25px;
-}
-
-tr th.modalTable{
-    text-align: left; 
-}
-
-.modal .fa-signal{
-    width:10px;
-    -webkit-transform:scale(2,1);
-            transform:scale(2,1);
-}
-
-.modal table.tg input[type=range]{
-    width:50px;
-}
-
-.modal ul .cow:before{
-    opacity:.7;
-    display:inline-block;
-    background-size: 1.5em;
-    height: 1.7em;
-    width: 1.7em;
-    position:relative;
-    top:7px;
-    left:-3px;
-}
-
-.modal .fa.fa-cube{
-    left:0;
-}
-
-.modal .fa.fa-cube#bigcube{
-    width:25px;
-    font-size:25px;
-    vertical-align: bottom;
-    
-}
-
-.modal .fa.fa-cube#smallcube{
-    width:10px;
-    font-size:10px;
-    vertical-align:bottom;
-    margin-right:15px;
-}
-
-
-
-
-
 
