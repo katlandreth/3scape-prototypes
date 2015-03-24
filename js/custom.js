@@ -1,65 +1,57 @@
 $(document).ready(function(){
-    var canvas = document.getElementById('canvas1');
-    var context = canvas.getContext("2d");
-    var modal = $(".modal");
+    var canvas = document.getElementById('canvas1'),
+        context = canvas.getContext("2d"),
+        modal = $(".modal");
     canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
     
-    
     //Setup the first modal
-    
     $(modal).addClass("first");
     $(".modal-head").text("You've entered a land where much is possible");
     $(".modal-content").text("I'm Snappy - a voiceless spirit and your guide to this world. Come with me to learn the ways of 3Scape.           Click on the Texture Face and behold what follows.");
     $("button.next").css("display", "none");
     $("div.modalTable").hide();
+    
     //Place Click Target, and place next modal
     $('html').click(function(e) {
         var target = $( e.target );
         if (target.is("html") || target.is("body") || target.is("canvas")){
-            var offset = $(this).offset();
-            var offX= e.clientX - offset.left -25;
-            var offY= e.clientY - offset.top -125;
-            var contextX = offX -150;
-            var contextY = offY -80;
-            var shapeX = offX -20;
-            var shapeY = offY -20;
-            var modalLeft= offX -130;
-            var modalTop= offY +170;
-            var secondModalLeft = shapeX -500;
-            var secondModalTop = shapeY +20;
-            var canvasX = offset.left +210;
-            var canvasY = offset.top -460;
-            var img = new Image();
+            var offset = $(this).offset(),
+                offX= e.clientX - offset.left -25,
+                offY= e.clientY - offset.top -125,
+                contextX = offX -150,
+                contextY = offY -80,
+                shapeX = offX -20,
+                shapeY = offY -20,
+                modalLeft= offX -130,
+                modalTop= offY +170,
+                secondModalLeft = shapeX -500,
+                secondModalTop = shapeY +20,
+                canvasX = offset.left +210,
+                canvasY = offset.top -460,
+                img = new Image();
+                
             
             //Draw Click Target
             context.clearRect ( 0 , 0 , canvas.width, canvas.height );
             img.src = "img/target.png";
-            console.log(img);
             img.onload = function() {
-                console.log("onload being fired");
                 context.drawImage(img,offX,offY,50,50);
-                console.log("Click Target Drawn");
             };
-            
-            
-            
+                  
             //Move Modal Below Target and Change Text
-            console.log("Move Modal Below Target");
+           
             $(".modal").removeClass("first").addClass("second").animate({top: modalTop , left: modalLeft });
             $(".modal-head").text("With targets like this, command the spawn point of every shape in the land");
             $(".modal-content").html("Click a shape in the toolbar and watch the magic unfold.");
-            console.log("Modal Moved");
+          
             //Add Context Menu to Target Area
-            console.log("Add Context Menu");
+           
             $("nav.circular-menu").remove();
             $("body").append(contextMenu);
-            
-            console.log("Context Menu Added");
-
-            //Var will Be Hoisted to the Top of Click Function
-            var items = $('.circle li'); 
+                
             //Arrange Circular Context Menu
+            var items = $('.circle li'); 
             for (var i = 0, l = items.length; i < l; i++) {
                 items[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
                 items[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
@@ -96,11 +88,11 @@ $(document).ready(function(){
             $(".tool").unbind().click(function(){
                 //Drop Shape From Toolbox
                 console.log("Tool Click Function Start");
-                var classList = $(this).attr('class').split(/\s+/);
-                var shapeName = classList.pop();
-                var shapeClass= "." + shapeName;
-                var img = new Image();
-                var imgSrc = window.getComputedStyle(
+                var classList = $(this).attr('class').split(/\s+/),
+                    shapeName = classList.pop(),
+                    shapeClass= "." + shapeName,
+                    img = new Image(),
+                    imgSrc = window.getComputedStyle(
                              document.querySelector(shapeClass), ':before'
                              ).getPropertyValue('background-image');
 
@@ -109,33 +101,36 @@ $(document).ready(function(){
                 img.src = imgSrc;
                 context.clearRect ( 0 , 0 , canvas.width, canvas.height );
                 console.log("Canvas Cleared");
+                
                 img.onload = function() {
-                    var theInput = document.getElementById("colorpicker");
-                    var x = shapeX + 50;
-                    var y = shapeY + 50;
-                    var pixel = context.getImageData(x, y, 1, 1);
-                    var data = pixel.data;
-                    var defaultR = data[0];
-                    var defaultG = data[1];
-                    var defaultB = data[2];
+                    var theInput = document.getElementById("colorpicker"),
+                        x = shapeX + 50,
+                        y = shapeY + 50,
+                        pixel = context.getImageData(x, y, 1, 1),
+                        data = pixel.data,
+                        defaultR = data[0],
+                        defaultG = data[1],
+                        defaultB = data[2],                    
+                        defaultHSL = rgbToHsl(defaultR, defaultG, defaultB),
+                        defaultL = .4,
+                        newDefaultRGB = hslToRgb(defaultHSL.h, defaultHSL.s, defaultL),
+                        defaultHex = rgbToHex(newDefaultRGB.r, newDefaultRGB.g, newDefaultRGB.b);
+                    
                     context.drawImage(img,shapeX,shapeY,100,100);
-                    
-                    var defaultHSL = rgbToHsl(defaultR, defaultG, defaultB);
-                   
-                    var defaultL = .4;
-                    var newDefaultRGB = hslToRgb(defaultHSL.h, defaultHSL.s, defaultL);
-                    var defaultHex = rgbToHex(newDefaultRGB.r, newDefaultRGB.g, newDefaultRGB.b);
-                    
                     $('input[type="color"]').val(defaultHex);
                     
                     //Make the Color Picker Work Good
                     theInput.addEventListener("input", function() {
-                        var theColor = theInput.value;
-                        var color = hexToRgb(theColor);
-                        var hslColor = rgbToHsl(color.r, color.g, color.b);
-                        var chosenHue = (hslColor.h);
-                        var imgData = context.getImageData(shapeX, shapeY, canvas.width, canvas.height);
-                        var data = imgData.data;
+                        var theColor = theInput.value,
+                            color = hexToRgb(theColor),
+                            hslColor = rgbToHsl(color.r, color.g, color.b),
+                            chosenHue = (hslColor.h),
+                            imgData = context.getImageData(shapeX, shapeY, canvas.width, canvas.height),
+                            data = imgData.data,
+                            hsl = rgbToHsl(red, green, blue),
+                            hue = hsl.h * 36,
+                            newRgb = hslToRgb(chosenHue, hsl.s, hsl.l);
+                        
                         for (var i = 0; i < data.length; i += 4) {
                             red = data[i + 0];
                             green = data[i + 1];
@@ -145,10 +140,6 @@ $(document).ready(function(){
                             if (alpha < 100) {
                                 continue;
                             }
-                            
-                            var hsl = rgbToHsl(red, green, blue);
-                            var hue = hsl.h * 360;
-                            var newRgb = hslToRgb(chosenHue, hsl.s, hsl.l);
                                 data[i + 0] = newRgb.r;
                                 data[i + 1] = newRgb.g;
                                 data[i + 2] = newRgb.b;
