@@ -1,0 +1,18 @@
+body{
+    box-sizing: border-box;
+}
+
+.gallery{
+    width:960px;
+    margin: 0 auto;
+}
+
+.gallery-figure{
+    width:25%;
+    min-height:50px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+
+.gallery-caption{
+    
+}
