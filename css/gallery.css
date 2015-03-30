@@ -45,7 +45,7 @@ figure.gallery-figure{
 }
 
 .overlay:hover{
-    background:url("../img/tour.gif");
+    background:rgba(255,255,255,0);
     background-size: cover;
 }
 
