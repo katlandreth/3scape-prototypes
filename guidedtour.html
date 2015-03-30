@@ -1,0 +1,118 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="css/menu.css">
+        <link rel="stylesheet" href="css/radialmenu.css">
+        <link rel="stylesheet" href="css/tour-interaction.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <script src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="js/contextmenu.js"></script>
+        <script src="js/toggle-menu.js"></script>
+        <script src="js/convertcolors.js"></script>
+        <script src="js/modal-quit-button.js"></script>
+        <script src="js/custom.js"></script>
+        
+    </head>
+    <body>
+        <div class="toolbox">
+            <ul>
+                <li class="tool cube">cube</li>
+                <li class="tool sphere">sphere</li>
+                <li class="tool pyramid">pyramid</li>
+                <li class="tool plank">plank</li>
+                <li class="tool gear">gear</li>
+                <li class="tool ring">ring</li>
+                <li class="tool tube">tube</li>
+                <li class="tool elbow">elbow</li>
+                <li class="tool wedge">wedge</li>
+                <li class="tool beam">beam</li>
+                <li class="tool wall">wall</li>
+            </ul>
+        </div>
+        <div class="flyout-wrapper">
+            <header class="fa-reorder fa"> Menu <span class="menutip"></span></header>
+            <section class="flyout">
+                <h3>Share</h3>
+                <ul class="social">
+                    <li class="fa-facebook fa tooltip1" title="Share a link to this 3Scape on Facebook"></li>
+                    <li class="fa-twitter fa tooltip1" title="Share a link to this 3Scape on Twitter"></li>
+                    <li class="fa-camera-retro fa tooltip1" title="Share this 3Scape on Instagram"></li>
+                    <li class="fa-play fa tooltip1" title="Record your 3Scape and share it on YouTube"></li>
+                    <li class="fa-coffee fa tooltip1" title="Share this 3Scape on your Tumblr"></li>
+                </ul>
+                <h3>Go-To</h3>
+                <ul class="go">
+                    <li class="fa-user fa tooltip" title="Change your settings. See your saved 3Scapes."> Your Profile</li>
+<!--                    <li class="fa-exclamation-sign fa tooltip" title="Cheat sheets for gesture, hot keys, and buttons in 3Scape"> Help Page</li>-->
+                    <li class="fa-laptop fa tooltip" title="Our latest updates, tips, and tricks."> 3Scape Blog</li>
+                </ul>
+                <h3>3Scape Actions</h3>
+                <ul>
+                    <li class="fa-fullscreen fa tooltip" title="Hide toolbars and extras. Hit Escape or click the exit button to exit full screen."> Full Screen</li>
+                    <li class="fa-plus fa tooltip" title="Create a new 3Scape - this one will automatically be saved"> New 3Scape</li>
+                    <li class="fa-remove-sign fa tooltip" title="Delete every object on this 3Scape. You can undo if you change your mind."> Clear 3Scape</li>
+                </ul>
+            </section>
+        </div>
+        <div class="modal">
+            <header class="modal-head"></header>
+            <div class="modal-content"></div>
+            <div class="modalTable">
+            <table class="tg">
+                    <tr>
+                        <th class="modalTable">See This?</th>
+                        <th class="modalTable">Use These</th>
+                        <th class="modalTable">To Do This</th>
+                    </tr>
+                    <tr>
+                        <td class="modalTable"><span class='fa fa-reply fa-rotate-90'></span> <span class='fa fa-refresh'></span></td>
+                        <td class="modalTable"><button class="spnlt fa-angle-left fa"></button><button class="spnrt fa-angle-right fa"></td>
+                        <td class="modalTable">rotate</td>
+                    </tr>
+                    <tr>
+                        <td class="modalTable"><span class='cow'></span></td>
+                        <td class="modalTable"><input type="radio" name="modal" value="on"><input type="radio" name="modal"                         value="off" checked="checked"></td>
+                        <td class="modalTable">animate</td>
+                    </tr>
+                    <tr>
+                        <td class="modalTable"><span class='fa fa-tint'></span></td>
+                        <td class="modalTable"><input id="modalColorpicker" type="color"></td>
+                        <td class="modalTable">color</td>
+                    </tr>
+                    <tr>
+                        <td class="modalTable"><span class="fa-cube fa" id="smallcube"></span><span class="fa fa-cube" id="bigcube"></td>
+                        <td class="modalTable"><input type=range  min=1 value=100 max=200 step=1></td>
+                        <td class="modalTable">scale</td>
+                    </tr>
+                </table>
+                <div class="fauxContent"><p>Explore your new found powers then choose "Next" to continue. (Fear not, this key will be saved.)</p></div>
+                </div>
+            
+<!--            <ul><li> spin the shape</li><li> animates the shape</li><li> changes its color </li></ul> <p>Check it out. When you're done exploring, click the Next button.</p>-->
+            
+            <div class="buttons">
+                <button class="quit">Quit Tour</button>
+                <button class="next">Next</button>
+            </div>
+        </div>
+
+        <canvas id="canvas1"></canvas>
+        
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
