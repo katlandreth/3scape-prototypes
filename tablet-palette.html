@@ -12,8 +12,15 @@
         <link rel="stylesheet" href="css/fonts.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-<!--       <script src="http://anthonyterrien.com/js/jquery.knob.js"></script>-->
          <script src="js/jogDial.js"></script>
+        <script src="js/raphael.js"></script>
+        <script src="js/colorwheel.js"></script>
+        <script>
+            $(document).ready(function(){
+              var cw = Raphael.colorwheel($(".colorwheel")[0],90, 25);
+            });
+            
+        </script>
         
     </head>
     
@@ -24,56 +31,76 @@
                     <ul class="pans clearfix list-inline">
                         <li class="pan">
                             <div class="dial">
-                          <div id="jog_dial_one" class="innerdial"></div>
-                        </div>
+                                <div id="jog_dial_one" class="innerdial">
+                                  <span class="fa fa-cog"></span>
+                                </div>
+                            </div>
                         </li>
 
                         <li class="pan">
                             <div class="dial">
-                          <div id="jog_dial_two" class="innerdial"></div>
-                        </div>
+                                <div id="jog_dial_one" class="innerdial">
+                                  <span class="fa "></span>
+                                </div>
+                            </div>
                         </li>
 
                         <li class="pan">
                             <div class="dial">
-                          <div id="jog_dial_three" class="innerdial"></div>
-                        </div>
+                                <div id="jog_dial_one" class="innerdial">
+                                  <span class="fa "></span>
+                                </div>
+                            </div>
                         </li>
 
-                       <li class="pan"> 
-                           <div class="dial">
-                          <div id="jog_dial_four" class="innerdial"></div>
-                        </div>
+                      <li class="pan">
+                            <div class="dial">
+                                <div id="jog_dial_one" class="innerdial">
+                                  <span class="fa "></span>
+                                </div>
+                            </div>
                         </li>
 
                         <li class="pan">
                             <div class="dial">
-                          <div id="jog_dial_five" class="innerdial"></div>
-                        </div>
+                                <div id="jog_dial_one" class="innerdial">
+                                  <span class="fa "></span>
+                                </div>
+                            </div>
                         </li>
 
                         <li class="pan">
                             <div class="dial">
-                          <div id="jog_dial_six" class="innerdial"></div>
-                        </div>
+                                <div id="jog_dial_one" class="innerdial">
+                                  <span class="fa "></span>
+                                </div>
+                            </div>
                         </li>
 
                         <li class="pan">
                             <div class="dial">
-                          <div id="jog_dial_seven" class="innerdial"></div>
-                        </div>
+                                <div id="jog_dial_one" class="innerdial">
+                                  <span class="fa "></span>
+                                </div>
+                            </div>
                         </li>
 
                         <li class="pan">
                             <div class="dial">
-                          <div id="jog_dial_eight" class="innerdial"></div>
-                        </div>
+                                <div id="jog_dial_one" class="innerdial">
+                                  <span class="fa "></span>
+                                </div>
+                            </div>
                         </li>
                         
                         <li class="pan">
-                            <div class="dial">
-                          <div id="jog_dial_eight" class="innerdial"></div>
-                        </div>
+                            <div class="colorwheel">
+<!--
+                                <div id="jog_dial_one" class="innerdial">
+                                  <span class="fa "></span>
+-->
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
