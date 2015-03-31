@@ -4,8 +4,10 @@ body{
 
 .ipad-mini{
     margin:50px auto;
+
     height:134.7mm;
-    width:200mm;
+   /* width:200mm;
+*/
     box-shadow: 0 0 5px rgba(0,0,00,0.4);
 }
 
@@ -15,10 +17,23 @@ p {
   color: #0f69cd;
 }
 
-.dial{
-    position:relative;
+ul.pans{
+    list-style: none;
+    margin:0;
+    padding:0;
+    width:100%;
+}
+
+li.pan{
     display:inline-block;
     float:left;
+    width:11.11%;
+    margin:0;
+    padding:0;
+}
+
+.dial{
+    position:relative;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
      -khtml-user-select: none;
