@@ -9,7 +9,9 @@
 * see http://jweir.github.com/colorwheel for Usage
 *
 */
-
+$(document).ready(function(){
+             
+            
 Raphael.colorwheel = function(target, color_wheel_size, no_segments){
   var canvas,
       current_color,
@@ -29,7 +31,8 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
       offset,
       padding = 2,
       sdim; // holds the dimensions for the saturation square
-    
+      
+
 
   function point(x, y){ return {x:x, y:y};}
   function radians(a){ return a * (Math.PI/180);}
@@ -41,7 +44,7 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
 
   function create(target, color_wheel_size){
     size     = color_wheel_size;
-    tri_size = size/20;
+    tri_size = size/15;
     center   = size/2;
     parent   = $(target);
     canvas   = Raphael(parent[0],size, size);
@@ -153,7 +156,7 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
 
   function cursor_create(size){
     var set = canvas.set().push(
-        canvas.circle(0, 0, size).attr({"stroke-width":4, stroke:"#333"}),
+        canvas.circle(0, 0, size).attr({"stroke-width":1, stroke:"#333"}),
         canvas.circle(0, 0, size+2).attr({"stroke-width":1, stroke:"#FFF", opacity:0.5})
     );
 
@@ -283,7 +286,7 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
     box = [sdim.x, sdim.y, sdim.l, sdim.l];
 
     bs_square.h = canvas.rect.apply(canvas, box).attr({
-      stroke:"#EEE", gradient: "0-#FFF-#000", opacity:1});
+      stroke:"#EEE", gradient: "0-#FFF-#000", opacity:0});
     bs_square.s = canvas.rect.apply(canvas, box).attr({
       stroke:null, gradient: "0-#FFF-#FFF", opacity:0});
     bs_square.b = canvas.rect.apply(canvas, box).attr({
@@ -343,7 +346,8 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
    
     
 };
+     var cw = Raphael.colorwheel($(".colorwheel")[0],90, 20);
 
-
+    }); 
 
 
