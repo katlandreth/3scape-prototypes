@@ -346,7 +346,7 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
    
     
 };
-     var cw = Raphael.colorwheel($(".colorwheel")[0],90, 20);
+     var cw = Raphael.colorwheel($(".colorwheel")[0],100, 20);
 
     }); 
 
