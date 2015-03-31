@@ -7,7 +7,6 @@
 
 (function (window, undefined) {
   'use strict';
-  
 
   /*
   * Constructor
@@ -194,9 +193,10 @@
   * @param  {Object}         options
   * return  {JogDial.Instance}
   */
+
   JogDial.Instance = function (el ,opt) {    
     // Prevent duplication
-    if (el.getAttribute('_jogDial_')) {
+    if (el.getAttribute('innerdial')) {
       window.alert('Please Check your code:\njogDial can not be initialized twice in a same element.');
       return false;
     }
@@ -249,7 +249,7 @@
 
   function setInstance(self, el, opt){
     self.base = el;
-    self.base.setAttribute('_JogDial_', true);
+    self.base.setAttribute('innerdial', true);
     self.opt = JogDial.utils.extend(JogDial.utils.extend({}, JogDial.Defaults), opt);
     self.info = {} || self;
     self.info.now = JogDial.utils.extend({},JogDial.DegInfo);
@@ -265,7 +265,7 @@
     * {HTMLElement}  JogDial.Instance.wheel
     */
     var item   = {},
-    BId      = self.base.getAttribute("id"),
+    BId      = self.base.getAttribute("class"),
     BW       = self.base.clientWidth,
     BH       = self.base.clientHeight,
     opt     = self.opt,
@@ -295,12 +295,12 @@
     WRad = W.clientWidth/2;
 
     //Set knob properties
-    K.setAttribute('id', BId + '_knob');
+    K.setAttribute('class', BId + '_knob');
     KS.margin = -KRad + 'px 0 0 ' + -KRad + 'px';
     KS.zIndex = opt.zIndex;
 
     //Set wheel properties
-    W.setAttribute('id', BId + '_wheel');
+    W.setAttribute('class', BId + '_wheel');
 
     WMargnLT = (BW-W.clientWidth)/2;
     WMargnTP = (BH-W.clientHeight)/2;
@@ -500,14 +500,27 @@
       // Browser globals
       window.JogDial = JogDial;
   }
+    
+    
 
 })(window);
+window.onload = function(){  
+var dials = document.getElementsByClassName('innerdial'); 
+//for_each dial in dials 
+console.log("Dials: " + dials);
+console.log(dials.length);
+for (var i = 0; i < dials.length; i++) {
+    console.log(dials[i]); //second console output
 
-window.onload = function(){
-  var bar = document.getElementById('jog_dial_one_meter_inner');  
-	var dialOne = JogDial(document.getElementById('jog_dial_one'), 
-                        {debug:false, wheelSize:'90%', knobSize:'30px', minDegree:0, maxDegree:360, degreeStartAt: 0})
-		.on('mousemove', function(evt){      
-      bar.style.width = Math.round((evt.target.rotation/360)*100) + '%';
-		});				
+    
+    
+   
+    //  var bar = document.getElementById('jog_dial_one_meter_inner');  
+        var dialOne = JogDial(dials[i], 
+                            {debug:false, wheelSize:'100%', knobSize:'30px', minDegree:0, maxDegree:360, degreeStartAt: 0})
+            .on('mousemove', function(evt){      
+    //      bar.style.width = Math.round((evt.target.rotation/360)*100) + '%';
+            });				
+    }
 }
+
