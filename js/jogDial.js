@@ -515,11 +515,11 @@ for (var i = 0; i < dials.length; i++) {
     
     
    
-    //  var bar = document.getElementById('jog_dial_one_meter_inner');  
+      var bar = document.getElementById('meter-inner');  
         var dialOne = JogDial(dials[i], 
-                            {debug:false, wheelSize:'100%', knobSize:'30px', minDegree:null, maxDegree:null, degreeStartAt: 0})
+                            {debug:false, wheelSize:'100%', knobSize:'50%', minDegree:null, maxDegree:null, degreeStartAt: 0})
             .on('mousemove', function(evt){      
-    //      bar.style.width = Math.round((evt.target.rotation/360)*100) + '%';
+          bar.style.width = Math.round((evt.target.rotation/360)*100) + '%';
             });	
     
     }

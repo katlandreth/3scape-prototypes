@@ -63,17 +63,37 @@ span.fa{
     vertical-align: -40%;
 }
 
+.meter-outer {
+  width: 200px;
+  height: 10px;
+  margin: 20px auto 30px;
+  background: #95c7ff;
+  overflow: hidden;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#meter-inner {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: #0f69cd;
+}
+
 /** Retina iPad **/
 @media
-only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (-moz-min-device-pixel-ratio: 2),
-only screen and (-o-min-device-pixel-ratio: 2/1),
-only screen and (min-device-pixel-ratio: 2),
-only screen and (min-resolution: 192dpi),
-only screen and (min-resolution: 2dppx){
+only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 1024px) and (orientation: landscape),
+only screen and (-moz-min-device-pixel-ratio: 2) and (max-device-width: 1024px) and (orientation: landscape),
+only screen and (-o-min-device-pixel-ratio: 2/1) and (max-device-width: 1024px) and (orientation: landscape),
+only screen and (min-device-pixel-ratio: 2) and (max-device-width: 1024px) and (orientation: landscape),
+only screen and (min-resolution: 192dpi) and (max-device-width: 1024px) and (orientation: landscape),
+only screen and (min-resolution: 2dppx) and (max-device-width: 1024px) and (orientation: landscape){
     .innerdial, .colorwheel {
-        width:105px;
-        height:105px;
+        width:90px;
+        height:90px;
     }
 }
 
