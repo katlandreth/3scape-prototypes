@@ -334,7 +334,7 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
     hue_ring.outline = canvas.circle(
       center,
       center,
-      center-tri_size-padding).attr({"stroke":"#000", "stroke-width":(tri_size*2)+3, opacity:0.1});
+      center-tri_size-padding).attr({"stroke":"#fff", "stroke-width":(tri_size*2)+3, opacity:1});
     hue_ring.outline.toBack();
     hue_ring.event.node.style.cursor = "crosshair";
   }
