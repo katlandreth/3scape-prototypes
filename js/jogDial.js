@@ -513,7 +513,7 @@ for (var i = 0; i < dials.length; i++) {
    
       var bar = document.getElementById('meter-inner');  
         var dialOne = JogDial(dials[i], 
-                            {debug:false, wheelSize:'100%', knobSize:'40%', minDegree:0, maxDegree:1080, degreeStartAt: 0})
+                            {debug:false, wheelSize:'100%', knobSize:'40%', minDegree:0, maxDegree:1080, degreeStartAt: 540})
             .on('mousemove', function(evt){      
           bar.style.opacity = Math.abs((evt.target.rotation/1080));
                 console.log(Math.abs((evt.target.rotation/1080)));
