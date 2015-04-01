@@ -519,7 +519,8 @@ for (var i = 0; i < dials.length; i++) {
         var dialOne = JogDial(dials[i], 
                             {debug:false, wheelSize:'100%', knobSize:'50%', minDegree:null, maxDegree:null, degreeStartAt: 0})
             .on('mousemove', function(evt){      
-          bar.style.width = Math.round((evt.target.rotation/360)*100) + '%';
+          bar.style.opacity = Math.abs((evt.target.rotation/1080));
+                console.log(Math.abs((evt.target.rotation/1080)));
             });	
     
     }
