@@ -10,7 +10,9 @@
 *
 */
 $(document).ready(function(){
-             
+        var color_wheel_width = $(".colorwheel").css("width");
+         var color_wheel_size = parseInt(color_wheel_width);
+    console.log(color_wheel_size);
             
 Raphael.colorwheel = function(target, color_wheel_size, no_segments){
   var canvas,
@@ -31,6 +33,7 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
       offset,
       padding = 2,
       sdim; // holds the dimensions for the saturation square
+    
       
 
 
@@ -346,8 +349,9 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
    
     
 };
-     var cw = Raphael.colorwheel($(".colorwheel")[0],100, 15);
+    
+     var cw = Raphael.colorwheel($(".colorwheel")[0], color_wheel_size, 15);
 
-    }); 
+}); 
 
 

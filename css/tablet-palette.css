@@ -10,9 +10,14 @@ ul.pans{
     width:100%;
 }
 
+.list-inline > li.pan{
+    padding:0;
+}
 li.pan{
     width:10.5%;
+    padding:0;
 }
+
 
 .dial{
     position:relative;
@@ -26,9 +31,10 @@ li.pan{
 
 .innerdial {
   position: relative;
-  width: 70px;
-  height: 70px;
-  margin: 0 auto;
+  width: 100%;
+    max-width:100px;
+/*  padding-top:100%;*/
+/*  margin: 0 auto;*/
   background: #0f69cd;
   -webkit-border-radius:50%;
   -moz-border-radius:50%;
@@ -64,9 +70,11 @@ span.fa{
 }
 
 .meter-outer {
-  width: 70px;
-  height: 70px;
-/*  margin: 20px auto 30px;*/
+  width: 100%;
+    max-width: 100px;
+/*  padding-top:100%;*/
+  position:absolute;
+    bottom:0;
   overflow: hidden;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -77,9 +85,11 @@ span.fa{
 }
 
 #meter-inner {
-  position: relative;
-  width: 70px;
-  height: 70px;
+  position: absolute;
+    bottom:0;
+  width: 100%;
+    max-width: 100px;
+/*  padding-top:100%;*/
    background-color: #ccc;
 background-image: linear-gradient(45deg, gray 25%, transparent 25%, transparent 75%, gray 75%, gray), 
 linear-gradient(45deg, gray 25%, transparent 25%, transparent 75%, gray 75%, gray);
@@ -89,6 +99,7 @@ background-position:0 0, 5px 5px;
     
 }
 
+
 /** Retina iPad **/
 @media
 only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 1024px) and (orientation: landscape),
@@ -97,9 +108,13 @@ only screen and (-o-min-device-pixel-ratio: 2/1) and (max-device-width: 1024px) 
 only screen and (min-device-pixel-ratio: 2) and (max-device-width: 1024px) and (orientation: landscape),
 only screen and (min-resolution: 192dpi) and (max-device-width: 1024px) and (orientation: landscape),
 only screen and (min-resolution: 2dppx) and (max-device-width: 1024px) and (orientation: landscape){
-    .innerdial, .colorwheel, #meter-inner, .meter-outer {
-        width:90px;
-        height:90px;
+    .innerdial, #meter-inner, .meter-outer {
+        max-width:90px;
+        max-height:90px;
+    }
+   .colorwheel{
+        max-width:100px;
+       max-height:100px;
     }
 }
 
