@@ -33,16 +33,20 @@ li.pan{
 .innerdial {
   position: relative;
   width: 100%;
-    max-width:100px;
-/*  padding-top:100%;*/
-/*  margin: 0 auto;*/
+  max-width:100px;
   background: #fff;
   -webkit-border-radius:50%;
   -moz-border-radius:50%;
   -ms-border-radius:50%;
   -o-border-radius:50%;
   border-radius:50%;
-}  
+} 
+
+.colorwheel{
+    position: relative;
+    width:100%;
+    max-width:120px;
+}
 
 
 
@@ -110,13 +114,9 @@ only screen and (-o-min-device-pixel-ratio: 2/1) and (max-device-width: 1024px) 
 only screen and (min-device-pixel-ratio: 2) and (max-device-width: 1024px) and (orientation: landscape),
 only screen and (min-resolution: 192dpi) and (max-device-width: 1024px) and (orientation: landscape),
 only screen and (min-resolution: 2dppx) and (max-device-width: 1024px) and (orientation: landscape){
-    .innerdial, #meter-inner, .meter-outer {
+    .innerdial, #meter-inner, .meter-outer, .colorwheel {
         max-width:90px;
         max-height:90px;
-    }
-   .colorwheel{
-        max-width:100px;
-       max-height:100px;
     }
 }
 

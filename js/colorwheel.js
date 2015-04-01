@@ -10,9 +10,18 @@
 *
 */
 $(document).ready(function(){
-        var color_wheel_width = $(".colorwheel").css("width");
-         var color_wheel_size = parseInt(color_wheel_width);
-    console.log(color_wheel_size);
+    var color_wheel_width = $(".colorwheel").css("width");
+    var color_wheel_size = parseInt(color_wheel_width);
+    $( window ).resize(function(){
+        console.log("css width " + $(".dial").css("width"));
+        color_wheel_width = $(".dial").css("width");
+        color_wheel_size = parseInt(color_wheel_width);
+        console.log("color wheel width = " + color_wheel_width);
+        console.log("color wheel size = " + color_wheel_size);
+        $(".colorwheel").empty().css({'height':color_wheel_size, 'width': color_wheel_size});
+        cw = Raphael.colorwheel($(".colorwheel")[0], color_wheel_size, 15);
+    });
+    
             
 Raphael.colorwheel = function(target, color_wheel_size, no_segments){
   var canvas,
@@ -346,10 +355,8 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
   }
 
   return create(target, color_wheel_size);
-   
     
-};
-    
+};   
      var cw = Raphael.colorwheel($(".colorwheel")[0], color_wheel_size, 15);
 
 }); 
