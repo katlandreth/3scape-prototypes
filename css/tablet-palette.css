@@ -64,8 +64,8 @@ span.fa{
 }
 
 .meter-outer {
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
 /*  margin: 20px auto 30px;*/
   overflow: hidden;
   -webkit-border-radius: 50%;
@@ -78,8 +78,8 @@ span.fa{
 
 #meter-inner {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
    background-color: #ccc;
 background-image: linear-gradient(45deg, gray 25%, transparent 25%, transparent 75%, gray 75%, gray), 
 linear-gradient(45deg, gray 25%, transparent 25%, transparent 75%, gray 75%, gray);
@@ -97,7 +97,7 @@ only screen and (-o-min-device-pixel-ratio: 2/1) and (max-device-width: 1024px) 
 only screen and (min-device-pixel-ratio: 2) and (max-device-width: 1024px) and (orientation: landscape),
 only screen and (min-resolution: 192dpi) and (max-device-width: 1024px) and (orientation: landscape),
 only screen and (min-resolution: 2dppx) and (max-device-width: 1024px) and (orientation: landscape){
-    .innerdial, .colorwheel {
+    .innerdial, .colorwheel, #meter-inner, .meter-outer {
         width:90px;
         height:90px;
     }
