@@ -5,6 +5,8 @@ body{
 .ipad-mini{
 }
 
+/* --- Palette --- */
+
 ul.pans{
     padding:20px;
     width:100%;
@@ -108,6 +110,83 @@ background-size:10px 10px;
 background-position:0 0, 5px 5px;
   opacity:0;
     
+}
+
+.logo{
+    border:1px solid #ccc;
+}
+
+.parts{
+    border:1px solid #ccc;
+}
+
+.nav-menu{
+    border:1px solid #ccc;
+}
+
+/* -- Parts -- */
+.parts{ 
+    font-size: 0; /* need this to remove white space between inline block elements - can override on children*/
+}
+
+ul.parts-list{
+    position:relative;
+    width:100%;
+}
+
+.list-inline > li.part{
+    padding:0;
+}
+
+li.part{
+    width:11.11%;
+    height:100px;
+    text-align: center;
+}
+
+button.parts-btn{
+    width:100%;
+    max-width:80px;
+    height:100%;
+    background-size:contain;
+    background-repeat: no-repeat;
+    border:none; 
+}
+
+.cube{
+    background: url("../img/CubeButton.png")
+}
+
+.sphere{
+    background: url("../img/SphereButton.png")
+}
+
+.pyramid{
+    background: url("../img/PyramidButton.png")
+}
+
+.gear{
+    background: url("../img/GearButton.png")
+}
+
+.plank{
+    background: url("../img/PlankButton.png")
+}
+
+.wall{
+    background: url("../img/WallButton.png")
+}
+
+.beam{
+    background: url("../img/BeamButton.png")
+}
+
+.tube{
+    background: url("../img/TubeButton.png")
+}
+
+.elbow{
+    background: url("../img/ElbowButton.png")
 }
 
 
