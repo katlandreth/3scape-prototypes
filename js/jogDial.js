@@ -507,17 +507,44 @@
 
 
 window.onload = function(){
-var dials = document.getElementsByClassName('innerdial');
-//for_each dial in dials
-for (var i = 0; i < dials.length; i++) {
-console.log(dials[i]); //second console output
-var bar = document.getElementById('meter-inner');
-var dialOne = JogDial(dials[i],
-{debug:false, wheelSize:'100%', knobSize:'40%', minDegree:0, maxDegree:1080, degreeStartAt: 0})
-.on('mousemove', function(evt){
-bar.style.opacity = Math.abs((evt.target.rotation/1080));
-console.log(Math.abs((evt.target.rotation/1080)));
-});
-}
+    var dials = document.getElementsByClassName('innerdial');
+    for (var i = 0; i < dials.length; i++) {
+               
+        if ( dials[i] != dials[7] ){
+            console.log([i]);
+            var dialOne = JogDial(dials[i],
+            {debug:false, wheelSize:'100%', knobSize:'40%', minDegree:0, maxDegree:1080, degreeStartAt: 540})
+            .on('mousemove', function(evt){
+//            bar.style.opacity = Math.abs((evt.target.rotation/1080));
+            console.log("I'm not the opacity dial!");
+        });
+            
+        }
+        else{
+            console.log(7);
+             var bar = document.getElementById('meter-inner');
+            var dialOne = JogDial(dials[i],
+            {debug:false, wheelSize:'100%', knobSize:'40%', minDegree:0, maxDegree:1080, degreeStartAt: 0})
+            .on('mousemove', function(evt){
+            bar.style.opacity = Math.abs((evt.target.rotation/1080));
+        });
+        }
+        
+//        var dialOne = JogDial(dials[i],
+//        {debug:false, wheelSize:'100%', knobSize:'40%', minDegree:0, maxDegree:1080, degreeStartAt: 540})
+//        .on('mousemove', function(evt){
+//            bar.style.opacity = Math.abs((evt.target.rotation/1080));
+//            console.log("I'm not the opacity dial!");
+//        });
+        
+//       
+//            var bar = document.getElementById('meter-inner');
+//            var dialOne = JogDial(dials[i],
+//            {debug:false, wheelSize:'100%', knobSize:'40%', minDegree:0, maxDegree:1080, degreeStartAt: 0})
+//            .on('mousemove', function(evt){
+//            bar.style.opacity = Math.abs((evt.target.rotation/1080));
+//        });
+        
+    }
 }
 
