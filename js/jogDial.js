@@ -298,7 +298,7 @@
     K.setAttribute('class', BId + '_knob');
     KS.margin = -KRad + 'px 0 0 ' + -KRad + 'px';
     KS.zIndex = opt.zIndex;
-
+      
     //Set wheel properties
     W.setAttribute('class', BId + '_wheel');
 
@@ -515,7 +515,6 @@ window.onload = function(){
             var dialOne = JogDial(dials[i],
             {debug:false, wheelSize:'100%', knobSize:'40%', minDegree:0, maxDegree:1080, degreeStartAt: 540})
             .on('mousemove', function(evt){
-//            bar.style.opacity = Math.abs((evt.target.rotation/1080));
             console.log("I'm not the opacity dial!");
         });
             
@@ -528,23 +527,7 @@ window.onload = function(){
             .on('mousemove', function(evt){
             bar.style.opacity = Math.abs((evt.target.rotation/1080));
         });
-        }
-        
-//        var dialOne = JogDial(dials[i],
-//        {debug:false, wheelSize:'100%', knobSize:'40%', minDegree:0, maxDegree:1080, degreeStartAt: 540})
-//        .on('mousemove', function(evt){
-//            bar.style.opacity = Math.abs((evt.target.rotation/1080));
-//            console.log("I'm not the opacity dial!");
-//        });
-        
-//       
-//            var bar = document.getElementById('meter-inner');
-//            var dialOne = JogDial(dials[i],
-//            {debug:false, wheelSize:'100%', knobSize:'40%', minDegree:0, maxDegree:1080, degreeStartAt: 0})
-//            .on('mousemove', function(evt){
-//            bar.style.opacity = Math.abs((evt.target.rotation/1080));
-//        });
-        
+        } 
     }
 }
 
