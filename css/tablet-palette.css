@@ -12,6 +12,7 @@ ul.pans{
     width:100%;
     background: #2c6ba4;
     text-align: center;
+    margin:0;
 }
 
 .list-inline > li.pan{
@@ -136,7 +137,6 @@ ul.parts-list{
     position:relative;
     width:100%;
     margin: 0;
-/*    background:#2c6ba4;*/
 }
 
 .list-inline > li.part{
