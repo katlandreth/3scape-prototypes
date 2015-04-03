@@ -358,6 +358,15 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
     
 };   
      var cw = Raphael.colorwheel($(".colorwheel")[0], color_wheel_size, 15);
+    
+    cw.onchange(function(color){
+        var rawColor = cw.color(),
+            rColor = Math.round(rawColor.r),
+            gColor = Math.round(rawColor.g),
+            bColor = Math.round(rawColor.b),
+            thisColor = rColor + ", " + gColor + ", " + bColor; 
+        console.log("rgb(" + thisColor + ")");
+    });
 
 }); 
 
