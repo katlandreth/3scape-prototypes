@@ -76,8 +76,24 @@ span.fa{
     left:1%;
 }
 
+/*
 .innerdial:active{
     box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
+}
+*/
+
+.shadow{
+    position:relative;
+    width:80%;
+    height:80%;
+    top:10%;
+    left:10%;
+    border-radius:50%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.shadow:active{
+    box-shadow: none;
 }
 
 .colorwheel svg{
