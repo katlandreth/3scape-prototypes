@@ -2,18 +2,23 @@ body{
     box-sizing: border-box;
 }
 
-.ipad-mini{
-}
 
 /* --- Palette --- */
 
+.palette{
+    width:50%;
+    overflow-y:hidden;
+    overflow-x:scroll;
+}
+
 ul.pans{
-    padding:20px;
-    width:100%;
+/*    padding:20px;*/
+    width:200%;
     background: #2c6ba4;
     text-align: center;
     margin:0;
     font-size:0;
+    white-space: nowrap;
 }
 
 .list-inline > li.pan{
